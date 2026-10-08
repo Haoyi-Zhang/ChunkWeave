@@ -4,7 +4,7 @@ This directory contains the semantic oracle, bounded models, source adapters, sc
 
 ## Environment
 
-Recorded execution used Python 3.13.5 and Node 22.16.0. Dependency files are separated by purpose:
+The retained primary execution used Python 3.13.5 and Node 22.16.0. Use the pinned Node version when comparing fault-injection outcomes: decoder behavior can change between runtime versions. Dependency files are separated by purpose:
 
 - `requirements-core.txt`: core adapters and CLI;
 - `requirements-analysis.txt`: analysis and vector plot generation;
@@ -54,8 +54,7 @@ This regenerates numeric macros, table snippets, CSV files, and vector plots. Pl
 - `results/study/sources.jsonl.gz`: exact source-configuration records.
 - `results/study/timing.jsonl.gz`: rank-balanced warm timing records.
 - `results/study/commit-gate/`: gate observations, exhaustive audit, and timing.
-- `results/reproduction/`: independent execution from the same source.
-- `results/reproduction-audit.json`: record-level deterministic comparison.
+- A reproduction creates the separate output directory chosen with `--out`; its observations and timings are not pooled with the primary run.
 
 ## Safety and bounds
 
