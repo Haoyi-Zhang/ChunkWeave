@@ -1,0 +1,41 @@
+{
+  "review": {
+    "pages": 11,
+    "reference_start_pages": [],
+    "appendix_start_pages": [
+      10
+    ],
+    "overfull_hboxes_pt": [],
+    "overfull_vboxes_pt": [
+      1.424
+    ],
+    "undefined_warnings": 0,
+    "unembedded_fonts": 0
+  },
+  "author": {
+    "pages": 12,
+    "reference_start_pages": [],
+    "appendix_start_pages": [
+      11
+    ],
+    "overfull_hboxes_pt": [],
+    "overfull_vboxes_pt": [
+      1.424
+    ],
+    "undefined_warnings": 0,
+    "unembedded_fonts": 0
+  },
+  "bibliography_entries": 64,
+  "distinct_entries": 64,
+  "cited_entries": 64,
+  "missing_citations": [],
+  "unused_entries": [],
+  "review_identity_hits": [],
+  "author_identity_missing": [
+    "0009-0009-3693-786X",
+    "0009-0009-2482-2344",
+    "0000-0002-6377-0884"
+  ],
+  "terminal_vbox_note": "A 1.424pt terminal output-box warning from acmart is accepted only after rendered-page inspection; horizontal overflow is not accepted.",
+  "status": "FAIL"
+}

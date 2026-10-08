@@ -1,0 +1,8 @@
+16 32768 256
+17 65536 768
+18 131072 1792
+28 2077 106
+33 2082 189
+38 2087 152
+29 2078 0
+{'status': 'passed', 'source_checks': 237700, 'extra_model_replays': 2454, 'exhaustive_partitions': 229376, 'independent_claim': 'independent implementations in one workflow, not independent human audit', 'wall_seconds': 6.701451927999869}

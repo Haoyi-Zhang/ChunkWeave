@@ -1,0 +1,26 @@
+{
+  "status": "completed",
+  "cases": 81,
+  "units": 888,
+  "repeats": 5,
+  "rows": 39960,
+  "strategies": [
+    "fixed",
+    "bytewise",
+    "uniform",
+    "bytewise-sparse",
+    "state-feature",
+    "state-feature-no-parser",
+    "callback-aware",
+    "two-obligation",
+    "no-shadow"
+  ],
+  "wall_seconds": 50.849948281000025,
+  "python": "3.13.5",
+  "peak_rss_kib": 110856,
+  "excluded": "runtime startup, common whole-input prechecks, and oracle computation",
+  "included": "lazy policy construction, warm IPC, and source execution",
+  "sample_rule": "first, middle, last by case id within each eligible authored family; deduplicated",
+  "random_seed_rule": "three fixed seeds selected by repeat modulo three; repeated random timing is not three-seed-independent statistical replication",
+  "thresholds": "nested observations of the same 50-ms trace; over-budget completion is never detected"
+}

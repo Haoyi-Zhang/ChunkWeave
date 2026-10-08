@@ -1,0 +1,47 @@
+[
+  {
+    "path": "vendor/httpx_sse/_api.py",
+    "upstream_git_blob": "017ed5eb3c0c09e64f74aa0fb985cdb6b1d3bd6f",
+    "bytes": 2919
+  },
+  {
+    "path": "vendor/httpx_sse/_exceptions.py",
+    "upstream_git_blob": "cd2c4d287ce86c4e922d56c66423615085892e14",
+    "bytes": 62
+  },
+  {
+    "path": "upstream-tests/httpx-sse-0.4.3/test_models.py",
+    "upstream_git_blob": "0f55825e303be27a5f53477dbc6fde1f747cbbea",
+    "bytes": 838
+  },
+  {
+    "path": "upstream-tests/httpx-sse-0.4.3/test_api.py",
+    "upstream_git_blob": "5fe04c9962dd778b4d002fdb3ddbdb521e0f25e2",
+    "bytes": 3796
+  },
+  {
+    "path": "upstream-tests/httpx-sse-0.4.3/test_asgi.py",
+    "upstream_git_blob": "1f6ad81f9eba8c0bd80908609a2f74b4b1097101",
+    "bytes": 1333
+  },
+  {
+    "path": "vendor/httpx_sse/__init__.py",
+    "upstream_git_blob": "b83cf09a2d8e8d26e91bc3f74e92b1c7d7eaa7ca",
+    "bytes": 282
+  },
+  {
+    "path": "upstream-tests/httpx-sse-0.4.3/test_exceptions.py",
+    "upstream_git_blob": "625638ab85e3289a33a254b2cfd69562011ecaee",
+    "bytes": 131
+  },
+  {
+    "path": "upstream-tests/httpx-sse-0.4.3/test_decoders.py",
+    "upstream_git_blob": "ef61825739cd0a4daf2303fd60010e99155208e4",
+    "bytes": 7211
+  },
+  {
+    "path": "upstream-tests/httpx-sse-0.4.3/test_event_source.py",
+    "upstream_git_blob": "d33434efde7a335e353e1e05e08cc5714e2524b4",
+    "bytes": 7782
+  }
+]

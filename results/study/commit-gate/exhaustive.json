@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "oracle": "explicit SSE observations, checked before enumeration",
+  "partitions": 524288,
+  "executions": 2097152,
+  "rows": [
+    {
+      "name": "event-2",
+      "bytes": 17,
+      "partitions": 65536,
+      "modes": [
+        "gate",
+        "gate_decoder_per_event",
+        "gate_parser_per_event",
+        "gate_all"
+      ],
+      "failures": 0
+    },
+    {
+      "name": "event-3",
+      "bytes": 18,
+      "partitions": 131072,
+      "modes": [
+        "gate",
+        "gate_decoder_per_event",
+        "gate_parser_per_event",
+        "gate_all"
+      ],
+      "failures": 0
+    },
+    {
+      "name": "event-4",
+      "bytes": 19,
+      "partitions": 262144,
+      "modes": [
+        "gate",
+        "gate_decoder_per_event",
+        "gate_parser_per_event",
+        "gate_all"
+      ],
+      "failures": 0
+    },
+    {
+      "name": "retry-2",
+      "bytes": 17,
+      "partitions": 65536,
+      "modes": [
+        "gate",
+        "gate_decoder_per_retry",
+        "gate_parser_per_retry",
+        "gate_all"
+      ],
+      "failures": 0
+    }
+  ]
+}

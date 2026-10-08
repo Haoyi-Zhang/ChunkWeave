@@ -1,0 +1,1 @@
+{'status': 'passed', 'streams': 2734, 'byte_prefixes': 945349, 'same_selected_schedules': 69975, 'corpus_streams': 537, 'syntax_combinations': 2197, 'wall_seconds': 4.875913315999924, 'scope': 'every byte prefix on this finite audit; exact projection proof is separate'}

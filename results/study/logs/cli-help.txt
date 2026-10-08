@@ -1,0 +1,16 @@
+usage: audit.py [-h] (--file FILE | --text TEXT)
+                [--adapter {js,js-skip-empty,python,azure}] [--budget BUDGET]
+                [--out OUT]
+
+Audit a bounded local SSE fixture with actual pinned source integrations.
+Examples: python -m chunkweave.audit --text 'data:hello ' --adapter js python
+-m chunkweave.audit --file examples/progress.sse --adapter python This command
+accepts local bytes only. It never contacts a server.
+
+options:
+  -h, --help            show this help message and exit
+  --file FILE
+  --text TEXT           literal text; use actual newline characters
+  --adapter {js,js-skip-empty,python,azure}
+  --budget BUDGET
+  --out OUT

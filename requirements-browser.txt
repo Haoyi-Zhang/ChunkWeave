@@ -1,0 +1,2 @@
+# Optional; not needed by smoke, full, exhaustive, native, or analysis commands.
+playwright==1.57.0

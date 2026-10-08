@@ -1,0 +1,212 @@
+1/537
+101/537
+201/537
+301/537
+401/537
+501/537
+{"status":"PASS","partitions":524288,"executions":2097152,"rows":[{"name":"event-2","bytes":17,"partitions":65536,"modes":["gate","gate_decoder_per_event","gate_parser_per_event","gate_all"],"failures":0},{"name":"event-3","bytes":18,"partitions":131072,"modes":["gate","gate_decoder_per_event","gate_parser_per_event","gate_all"],"failures":0},{"name":"event-4","bytes":19,"partitions":262144,"modes":["gate","gate_decoder_per_event","gate_parser_per_event","gate_all"],"failures":0},{"name":"retry-2","bytes":17,"partitions":65536,"modes":["gate","gate_decoder_per_retry","gate_parser_per_retry","gate_all"],"failures":0}]}
+{
+  "status": "PASS",
+  "corpus_streams": 537,
+  "corpus_bytes": 891607,
+  "max_bytes": 60145,
+  "mode_summary": {
+    "decoder_per_event": {
+      "streams": 537,
+      "checks": 10823,
+      "whole_mismatches": 1,
+      "changed_streams": 375,
+      "changed_checks": 1420,
+      "semantic_mismatch_checks": 1434
+    },
+    "parser_per_event": {
+      "streams": 537,
+      "checks": 10823,
+      "whole_mismatches": 1,
+      "changed_streams": 430,
+      "changed_checks": 6779,
+      "semantic_mismatch_checks": 6786
+    },
+    "decoder_per_retry": {
+      "streams": 537,
+      "checks": 10823,
+      "whole_mismatches": 1,
+      "changed_streams": 286,
+      "changed_checks": 1573,
+      "semantic_mismatch_checks": 1587
+    },
+    "parser_per_retry": {
+      "streams": 537,
+      "checks": 10823,
+      "whole_mismatches": 1,
+      "changed_streams": 319,
+      "changed_checks": 6621,
+      "semantic_mismatch_checks": 6635
+    },
+    "gate": {
+      "streams": 537,
+      "checks": 10823,
+      "whole_mismatches": 0,
+      "changed_streams": 0,
+      "changed_checks": 0,
+      "semantic_mismatch_checks": 0
+    },
+    "gate_decoder_per_event": {
+      "streams": 537,
+      "checks": 10823,
+      "whole_mismatches": 0,
+      "changed_streams": 0,
+      "changed_checks": 0,
+      "semantic_mismatch_checks": 0
+    },
+    "gate_parser_per_event": {
+      "streams": 537,
+      "checks": 10823,
+      "whole_mismatches": 0,
+      "changed_streams": 0,
+      "changed_checks": 0,
+      "semantic_mismatch_checks": 0
+    },
+    "gate_decoder_per_retry": {
+      "streams": 537,
+      "checks": 10823,
+      "whole_mismatches": 0,
+      "changed_streams": 0,
+      "changed_checks": 0,
+      "semantic_mismatch_checks": 0
+    },
+    "gate_parser_per_retry": {
+      "streams": 537,
+      "checks": 10823,
+      "whole_mismatches": 0,
+      "changed_streams": 0,
+      "changed_checks": 0,
+      "semantic_mismatch_checks": 0
+    },
+    "gate_all": {
+      "streams": 537,
+      "checks": 10823,
+      "whole_mismatches": 0,
+      "changed_streams": 0,
+      "changed_checks": 0,
+      "semantic_mismatch_checks": 0
+    }
+  },
+  "pairs": [
+    {
+      "unsafe": "decoder_per_event",
+      "guarded": "gate_decoder_per_event",
+      "unsafe_changed_streams": 375,
+      "guarded_changed_streams": 0,
+      "unsafe_mismatch_checks": 1434,
+      "guarded_mismatch_checks": 0
+    },
+    {
+      "unsafe": "parser_per_event",
+      "guarded": "gate_parser_per_event",
+      "unsafe_changed_streams": 430,
+      "guarded_changed_streams": 0,
+      "unsafe_mismatch_checks": 6786,
+      "guarded_mismatch_checks": 0
+    },
+    {
+      "unsafe": "decoder_per_retry",
+      "guarded": "gate_decoder_per_retry",
+      "unsafe_changed_streams": 286,
+      "guarded_changed_streams": 0,
+      "unsafe_mismatch_checks": 1587,
+      "guarded_mismatch_checks": 0
+    },
+    {
+      "unsafe": "parser_per_retry",
+      "guarded": "gate_parser_per_retry",
+      "unsafe_changed_streams": 319,
+      "guarded_changed_streams": 0,
+      "unsafe_mismatch_checks": 6635,
+      "guarded_mismatch_checks": 0
+    }
+  ],
+  "timing": {
+    "selected_streams": 94,
+    "rows": 3885,
+    "repeats": 5,
+    "summary": {
+      "bom_owned": {
+        "runs": 1295,
+        "median_ms": 0.02077100000133214,
+        "mean_ms": 0.12954532741312078,
+        "p95_ms": 0.35408300000017334
+      },
+      "gate": {
+        "runs": 1295,
+        "median_ms": 0.022134000000733067,
+        "mean_ms": 0.1716216918918974,
+        "p95_ms": 0.5876449999996112,
+        "median_overhead_percent": 6.5620336012397695
+      },
+      "gate_all": {
+        "runs": 1295,
+        "median_ms": 0.023906000000351924,
+        "mean_ms": 0.18321413513512547,
+        "p95_ms": 0.6217859999997017,
+        "median_overhead_percent": 15.093158725235757
+      }
+    }
+  },
+  "exhaustive": {
+    "status": "PASS",
+    "partitions": 524288,
+    "executions": 2097152,
+    "rows": [
+      {
+        "name": "event-2",
+        "bytes": 17,
+        "partitions": 65536,
+        "modes": [
+          "gate",
+          "gate_decoder_per_event",
+          "gate_parser_per_event",
+          "gate_all"
+        ],
+        "failures": 0
+      },
+      {
+        "name": "event-3",
+        "bytes": 18,
+        "partitions": 131072,
+        "modes": [
+          "gate",
+          "gate_decoder_per_event",
+          "gate_parser_per_event",
+          "gate_all"
+        ],
+        "failures": 0
+      },
+      {
+        "name": "event-4",
+        "bytes": 19,
+        "partitions": 262144,
+        "modes": [
+          "gate",
+          "gate_decoder_per_event",
+          "gate_parser_per_event",
+          "gate_all"
+        ],
+        "failures": 0
+      },
+      {
+        "name": "retry-2",
+        "bytes": 17,
+        "partitions": 65536,
+        "modes": [
+          "gate",
+          "gate_decoder_per_retry",
+          "gate_parser_per_retry",
+          "gate_all"
+        ],
+        "failures": 0
+      }
+    ]
+  },
+  "wall_seconds": 26.991093873999944
+}

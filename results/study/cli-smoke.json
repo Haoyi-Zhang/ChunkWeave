@@ -1,0 +1,26 @@
+{
+  "status": "NO_DISCREPANCY_IN_TEST_SET",
+  "adapter": "js",
+  "bytes": 86,
+  "tests": 17,
+  "whole_semantics_equal": true,
+  "partition_changed": false,
+  "expected": {
+    "events": [
+      {
+        "type": "progress",
+        "data": "{\"task\":\"导出\",\"percent\":25}",
+        "id": "1"
+      },
+      {
+        "type": "message",
+        "data": "complete ✓",
+        "id": "2"
+      }
+    ],
+    "retries": [],
+    "last_event_id": "2"
+  },
+  "differences": [],
+  "scope": "Exact slices of this local byte stream; a sampled source audit, not universal library certification."
+}

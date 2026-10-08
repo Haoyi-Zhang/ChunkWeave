@@ -1,0 +1,29 @@
+name: Tests and bounded SSE checks
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  tests:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ['3.12.14', '3.13.5']
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    env:
+      PYTHONPATH: .
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.16.0'
+      - run: python -m pip install -r requirements-core.txt -r requirements-upstream.txt pytest==9.0.2
+      - run: python -m pytest tests -q
+      - run: python scripts/projection_audit.py --out results/ci-projection.json
+      - run: python scripts/upstream_check.py --out results/ci-upstream
+      - run: node --no-warnings --experimental-transform-types scripts/commit_gate_exhaustive.mjs results/ci-gate.json

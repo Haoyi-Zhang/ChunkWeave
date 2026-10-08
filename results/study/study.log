@@ -1,0 +1,15 @@
+1/537 0.7s
+41/537 22.5s
+81/537 44.0s
+121/537 67.2s
+161/537 90.3s
+201/537 111.4s
+241/537 134.1s
+281/537 136.5s
+321/537 139.1s
+361/537 141.7s
+401/537 143.3s
+441/537 146.9s
+481/537 150.5s
+521/537 153.3s
+{'case_records': 537, 'scheduled_control_mode_runs': 997104, 'campaign_records': 6084, 'source_checks': 54115, 'status': 'completed', 'wall_seconds': 154.782477987, 'controls': ['stateless_utf8', 'reset_parser', 'empty_reset', 'leading_trim', 'newline_each_feed', 'crlf_chunk_normalize', 'id_per_chunk', 'decoder_per_event', 'parser_per_event', 'decoder_per_retry', 'parser_per_retry'], 'strategies': ['fixed', 'bytewise', 'uniform', 'bytewise-sparse', 'state-feature', 'state-feature-no-parser', 'callback-aware', 'two-obligation', 'no-shadow'], 'python': '3.13.5', 'node': 'v22.16.0', 'peak_rss_kib': 171808, 'child_peak_rss_kib': 171808, 'clock_utc': '2026-10-08T12:47:42Z'}

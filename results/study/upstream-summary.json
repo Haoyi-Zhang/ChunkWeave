@@ -1,0 +1,22 @@
+{
+  "status": "passed_available_tests",
+  "tests": 58,
+  "failures": 0,
+  "excluded": [
+    {
+      "file": "test_asgi.py",
+      "tests": 1,
+      "reason": "optional sse_starlette dependency is unavailable"
+    }
+  ],
+  "command": [
+    "python",
+    "-m",
+    "pytest",
+    "upstream-tests/httpx-sse-0.4.3",
+    "-q",
+    "--junitxml=results/study/upstream-tests.xml",
+    "--ignore=upstream-tests/httpx-sse-0.4.3/test_asgi.py"
+  ],
+  "source": "unchanged pinned httpx-sse 0.4.3 tests"
+}

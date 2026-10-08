@@ -1,0 +1,319 @@
+{
+  "cohorts": {
+    "all": {
+      "units": 5104,
+      "families": 27,
+      "rates": {
+        "fixed": 75.0,
+        "bytewise": 56.896551724137936,
+        "uniform": 65.61520376175548,
+        "bytewise-sparse": 75.39838035527691,
+        "state-feature": 65.85031347962382,
+        "state-feature-no-parser": 78.35031347962382,
+        "callback-aware": 78.56583072100314,
+        "two-obligation": 77.39028213166145,
+        "no-shadow": 71.55172413793103
+      },
+      "callback-aware_minus_fixed_pp": 3.5658307210031346,
+      "family_bootstrap_95": [
+        1.875980995427346,
+        5.432235427723726
+      ]
+    },
+    "old-input-old-action": {
+      "units": 2560,
+      "families": 19,
+      "rates": {
+        "fixed": 81.953125,
+        "bytewise": 74.1796875,
+        "uniform": 74.1796875,
+        "bytewise-sparse": 81.88802083333333,
+        "state-feature": 74.765625,
+        "state-feature-no-parser": 83.4375,
+        "callback-aware": 83.6328125,
+        "two-obligation": 83.6328125,
+        "no-shadow": 77.734375
+      },
+      "callback-aware_minus_fixed_pp": 1.6796875,
+      "family_bootstrap_95": [
+        0.32008679043548316,
+        3.363223658774926
+      ]
+    },
+    "new-input-old-action": {
+      "units": 1140,
+      "families": 8,
+      "rates": {
+        "fixed": 72.28070175438597,
+        "bytewise": 66.57894736842105,
+        "uniform": 66.81286549707602,
+        "bytewise-sparse": 71.81286549707603,
+        "state-feature": 70.96491228070175,
+        "state-feature-no-parser": 77.10526315789473,
+        "callback-aware": 77.10526315789473,
+        "two-obligation": 77.10526315789473,
+        "no-shadow": 72.28070175438597
+      },
+      "callback-aware_minus_fixed_pp": 4.824561403508771,
+      "family_bootstrap_95": [
+        2.368421052631579,
+        7.292355599647263
+      ]
+    },
+    "old-input-new-action": {
+      "units": 972,
+      "families": 19,
+      "rates": {
+        "fixed": 72.7366255144033,
+        "bytewise": 24.691358024691358,
+        "uniform": 54.698216735253766,
+        "bytewise-sparse": 75.17146776406035,
+        "state-feature": 49.074074074074076,
+        "state-feature-no-parser": 77.77777777777779,
+        "callback-aware": 78.39506172839506,
+        "two-obligation": 72.22222222222221,
+        "no-shadow": 65.74074074074075
+      },
+      "callback-aware_minus_fixed_pp": 5.658436213991769,
+      "family_bootstrap_95": [
+        1.6872362869198312,
+        10.035950252623397
+      ]
+    },
+    "new-input-new-action": {
+      "units": 432,
+      "families": 8,
+      "rates": {
+        "fixed": 46.06481481481482,
+        "bytewise": 1.3888888888888888,
+        "uniform": 36.26543209876543,
+        "bytewise-sparse": 46.913580246913575,
+        "state-feature": 37.26851851851852,
+        "state-feature-no-parser": 52.77777777777778,
+        "callback-aware": 52.77777777777778,
+        "two-obligation": 52.77777777777778,
+        "no-shadow": 46.06481481481482
+      },
+      "callback-aware_minus_fixed_pp": 6.712962962962964,
+      "family_bootstrap_95": [
+        1.6203703703703702,
+        13.425925925925927
+      ]
+    },
+    "new-input-all-action": {
+      "units": 1572,
+      "families": 8,
+      "rates": {
+        "fixed": 65.07633587786259,
+        "bytewise": 48.66412213740458,
+        "uniform": 58.41815097540288,
+        "bytewise-sparse": 64.97031382527567,
+        "state-feature": 61.704834605597966,
+        "state-feature-no-parser": 70.41984732824427,
+        "callback-aware": 70.41984732824427,
+        "two-obligation": 70.41984732824427,
+        "no-shadow": 65.07633587786259
+      },
+      "callback-aware_minus_fixed_pp": 5.343511450381679,
+      "family_bootstrap_95": [
+        2.4173027989821882,
+        8.334125475285166
+      ]
+    }
+  },
+  "source": {
+    "js-default": {
+      "streams": 537,
+      "checks": 10823,
+      "whole_mismatch": 1,
+      "changed_streams": 0,
+      "changed_checks": 0
+    },
+    "js-single-bom-owner": {
+      "streams": 537,
+      "checks": 10823,
+      "whole_mismatch": 0,
+      "changed_streams": 0,
+      "changed_checks": 0
+    },
+    "js-skip-empty": {
+      "streams": 537,
+      "checks": 10823,
+      "whole_mismatch": 0,
+      "changed_streams": 0,
+      "changed_checks": 0
+    },
+    "azure-source": {
+      "streams": 537,
+      "checks": 10823,
+      "whole_mismatch": 105,
+      "changed_streams": 0,
+      "changed_checks": 0
+    },
+    "python-source": {
+      "streams": 537,
+      "checks": 10823,
+      "whole_mismatch": 3,
+      "changed_streams": 0,
+      "changed_checks": 0
+    }
+  },
+  "controls": {
+    "crlf_chunk_normalize": {
+      "units": 468,
+      "rates": {
+        "fixed": 28.63247863247863,
+        "bytewise": 28.63247863247863,
+        "uniform": 28.63247863247863,
+        "bytewise-sparse": 28.63247863247863,
+        "state-feature": 28.63247863247863,
+        "state-feature-no-parser": 28.63247863247863,
+        "callback-aware": 28.63247863247863,
+        "two-obligation": 28.63247863247863,
+        "no-shadow": 28.63247863247863
+      }
+    },
+    "decoder_per_event": {
+      "units": 468,
+      "rates": {
+        "fixed": 56.41025641025641,
+        "bytewise": 0,
+        "uniform": 0.5698005698005697,
+        "bytewise-sparse": 54.91452991452991,
+        "state-feature": 13.88888888888889,
+        "state-feature-no-parser": 76.28205128205127,
+        "callback-aware": 77.35042735042735,
+        "two-obligation": 77.35042735042735,
+        "no-shadow": 33.33333333333333
+      }
+    },
+    "decoder_per_retry": {
+      "units": 468,
+      "rates": {
+        "fixed": 42.30769230769231,
+        "bytewise": 0,
+        "uniform": 0.21367521367521367,
+        "bytewise-sparse": 46.794871794871796,
+        "state-feature": 38.675213675213676,
+        "state-feature-no-parser": 58.54700854700855,
+        "callback-aware": 58.54700854700855,
+        "two-obligation": 58.54700854700855,
+        "no-shadow": 27.77777777777778
+      }
+    },
+    "empty_reset": {
+      "units": 468,
+      "rates": {
+        "fixed": 87.17948717948718,
+        "bytewise": 87.17948717948718,
+        "uniform": 87.17948717948718,
+        "bytewise-sparse": 87.17948717948718,
+        "state-feature": 87.17948717948718,
+        "state-feature-no-parser": 87.17948717948718,
+        "callback-aware": 87.17948717948718,
+        "two-obligation": 87.17948717948718,
+        "no-shadow": 87.17948717948718
+      }
+    },
+    "id_per_chunk": {
+      "units": 468,
+      "rates": {
+        "fixed": 72.22222222222221,
+        "bytewise": 72.22222222222221,
+        "uniform": 72.22222222222221,
+        "bytewise-sparse": 72.22222222222221,
+        "state-feature": 72.22222222222221,
+        "state-feature-no-parser": 72.22222222222221,
+        "callback-aware": 72.22222222222221,
+        "two-obligation": 72.22222222222221,
+        "no-shadow": 72.22222222222221
+      }
+    },
+    "leading_trim": {
+      "units": 468,
+      "rates": {
+        "fixed": 100,
+        "bytewise": 100,
+        "uniform": 100,
+        "bytewise-sparse": 100,
+        "state-feature": 100,
+        "state-feature-no-parser": 100,
+        "callback-aware": 100,
+        "two-obligation": 100,
+        "no-shadow": 100
+      }
+    },
+    "newline_each_feed": {
+      "units": 424,
+      "rates": {
+        "fixed": 100,
+        "bytewise": 100,
+        "uniform": 100,
+        "bytewise-sparse": 100,
+        "state-feature": 100,
+        "state-feature-no-parser": 100,
+        "callback-aware": 100,
+        "two-obligation": 100,
+        "no-shadow": 100
+      }
+    },
+    "parser_per_event": {
+      "units": 468,
+      "rates": {
+        "fixed": 85.8974358974359,
+        "bytewise": 0,
+        "uniform": 85.47008547008546,
+        "bytewise-sparse": 87.25071225071225,
+        "state-feature": 38.88888888888889,
+        "state-feature-no-parser": 86.96581196581197,
+        "callback-aware": 87.6068376068376,
+        "two-obligation": 77.35042735042735,
+        "no-shadow": 85.8974358974359
+      }
+    },
+    "parser_per_retry": {
+      "units": 468,
+      "rates": {
+        "fixed": 65.38461538461539,
+        "bytewise": 52.56410256410257,
+        "uniform": 61.396011396011396,
+        "bytewise-sparse": 65.38461538461539,
+        "state-feature": 58.76068376068376,
+        "state-feature-no-parser": 64.74358974358975,
+        "callback-aware": 65.38461538461539,
+        "two-obligation": 62.82051282051282,
+        "no-shadow": 65.38461538461539
+      }
+    },
+    "reset_parser": {
+      "units": 468,
+      "rates": {
+        "fixed": 100,
+        "bytewise": 100,
+        "uniform": 100,
+        "bytewise-sparse": 100,
+        "state-feature": 100,
+        "state-feature-no-parser": 100,
+        "callback-aware": 100,
+        "two-obligation": 100,
+        "no-shadow": 100
+      }
+    },
+    "stateless_utf8": {
+      "units": 468,
+      "rates": {
+        "fixed": 89.31623931623932,
+        "bytewise": 89.31623931623932,
+        "uniform": 89.31623931623932,
+        "bytewise-sparse": 89.31623931623932,
+        "state-feature": 89.31623931623932,
+        "state-feature-no-parser": 89.31623931623932,
+        "callback-aware": 89.31623931623932,
+        "two-obligation": 89.31623931623932,
+        "no-shadow": 89.31623931623932
+      }
+    }
+  },
+  "clean_campaign_checks": 83092,
+  "clean_campaign_mismatches": 0
+}
