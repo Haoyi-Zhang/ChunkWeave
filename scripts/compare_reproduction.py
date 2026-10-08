@@ -42,6 +42,12 @@ def main() -> None:
     parser.add_argument('--out', type=Path, default=Path('results/reproduction-audit.json'))
     args = parser.parse_args()
     checks: list[dict] = []
+    primary_runtime = read_json(args.primary / 'resources.json')
+    replay_runtime = read_json(args.replay / 'resources.json')
+    runtimes = {
+        'primary': {key: primary_runtime.get(key) for key in ('python', 'node', 'platform')},
+        'replay': {key: replay_runtime.get(key) for key in ('python', 'node', 'platform')},
+    }
 
     scalar_files = (
         'resources.json', 'baselines.json.gz', 'source-differences.json.gz',
@@ -103,7 +109,10 @@ def main() -> None:
         'status': 'PASS' if all(check['equal'] for check in checks) else 'FAIL',
         'checks': checks,
         'excluded_fields': sorted(VOLATILE),
+        'runtimes': runtimes,
+        'same_node_version': primary_runtime.get('node') == replay_runtime.get('node'),
         'timing_note': 'Runtime-dependent durations and budget hits are retained separately and not pooled.',
+        'runtime_note': 'Semantic differences remain failures. A different Node version requires investigation before interpreting a difference as a platform or implementation regression.',
         'primary': str(args.primary),
         'replay': str(args.replay),
     }
