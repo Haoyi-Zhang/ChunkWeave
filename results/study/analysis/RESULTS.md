@@ -1,6 +1,6 @@
 # ChunkWeave measured results
 
-This directory is the primary executed evidence. Inputs are valid, bounded local fixtures. An eligible unit is a stream/action pair that passes the whole-input semantic precheck; unsensitized actions remain in the denominator.
+This report summarizes retained records from results/study; generating it does not rerun experiments. Inputs are valid, bounded local fixtures. An eligible unit is a stream/action pair that passes the whole-input semantic precheck; unsensitized actions remain in the denominator.
 
 ## Detection at a shared cap of sixteen distinct schedules
 
@@ -11,7 +11,7 @@ This directory is the primary executed evidence. Inputs are valid, bounded local
 | Uniform random | 65.62% | 58.42% |
 | Bytewise + sparse random | 75.40% | 64.97% |
 | State-feature selector | 65.85% | 61.70% |
-| State selector without parser tags | 78.35% | 70.42% |
+| Reduced-tag state selector | 78.35% | 70.42% |
 | Callback-aware portfolio | 78.57% | 70.42% |
 | Two-obligation policy | 77.39% | 70.42% |
 | No-shadow ablation | 71.55% | 65.08% |
@@ -29,7 +29,7 @@ Reference/base-action units: 2,560; structural/base-action: 1,140; reference/cal
 | Decoder / Retry | 286 | 1,587 | 0 | 0 |
 | Parser / Retry | 319 | 6,635 | 0 | 0 |
 
-Every guarded mode preserves the oracle over 537 streams and 10,823 schedules per mode. The exhaustive audit covers 524,288 partitions and 2,097,152 gated executions with zero failures. Median overhead is 6.56% for the gate and 15.09% when all four replacement requests are enabled.
+Every guarded mode preserves the oracle over 537 streams and 10,823 schedules per mode. The exhaustive audit covers 524,288 partitions and 2,097,152 gated executions with zero failures. Median paired per-workload overhead is 21.92% for the gate and 42.46% when all four replacement requests are enabled, over 1,295 paired workloads. This takes the median of 100*(mode/bom_owned - 1), pairing by (case, schedule_index, repeat). The separate ratios of pooled medians are 6.56% and 15.09%, respectively; these compute 100*(median(mode)/median(bom_owned) - 1), not the paired statistic.
 
 ## Repeated, rank-balanced warm discovery
 
@@ -40,12 +40,14 @@ Every guarded mode preserves the oracle over 537 streams and 10,823 schedules pe
 | Uniform random | 59.66% | 63.78% | 1.418 |
 | Bytewise + sparse random | 67.34% | 71.89% | 0.990 |
 | State-feature selector | 55.29% | 61.55% | 2.798 |
-| State selector without parser tags | 65.88% | 75.00% | 1.316 |
+| Reduced-tag state selector | 65.88% | 75.00% | 1.316 |
 | Callback-aware portfolio | 70.56% | 75.00% | 1.011 |
 | Two-obligation policy | 68.69% | 73.20% | 0.704 |
 | No-shadow ablation | 61.37% | 68.36% | 1.193 |
 
 The timing study contains 81 inputs, 888 eligible units, five repeats, nine policies, and 39,960 runs. Timers include lazy construction, warm IPC, and source execution. Common oracle/precheck work and startup are excluded; all non-detections remain in the denominator.
+
+Two obligations have the lowest mean consumed work among the compared multi-schedule policies. Bytewise-only is cheaper but has a lower 50-ms detection rate; the table retains that tradeoff. At most two schedules is a test-count bound, not constant feed cost: the bytewise schedule makes one feed per byte.
 
 ## Source configurations
 
@@ -67,7 +69,7 @@ The bounded-state projection matches 945,349 byte prefixes and 69,975 selected s
 
 Cut-only reduction produces 64 byte-preserving witnesses, all replayed and freshly checked for deletion-1 minimality.
 
-The local test suite has 57 passing tests plus 7 subtests. 58 unchanged upstream httpx-sse tests pass. The included ASGI test requires an unavailable optional dependency.
+The supplied primary local-test record contains 57 passing tests plus 7 subtests; a fresh reproduction records the current suite outcome in tests.log. The retained upstream record reports 58 passing unchanged httpx-sse tests. The included ASGI test requires an unavailable optional dependency.
 
 ## Resources and limits
 
