@@ -178,7 +178,7 @@ def main() -> None:
     axis.legend(frameon=False, loc='upper right', fontsize=8)
     axis.spines[['top', 'right']].set_visible(False)
     fig.tight_layout(pad=.35)
-    fig.savefig(figures / 'shadow-density.pdf')
+    fig.savefig(figures / 'shadow-density.pdf', bbox_inches='tight', pad_inches=.08)
     plt.close(fig)
     with (out / 'analysis/shadow-density.csv').open('w', newline='') as stream:
         writer = csv.writer(stream)
