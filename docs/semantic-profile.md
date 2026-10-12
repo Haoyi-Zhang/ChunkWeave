@@ -19,6 +19,6 @@ ID fields containing NUL are ignored; an empty ID field resets the buffer; the c
 
 ## Two different oracle implementations
 
-`oracle.py` first uses whole-input strict UTF-8 decoding and then a regular expression to enumerate terminated lines. `model.py` uses a valid-only byte DFA, scalar-by-scalar CR/LF processing and a string data buffer. The model does not import codecs, regular expressions, or the reference evaluator. Upstream literal expected-data examples check both, and the short cases enumerate every partition. Both implementations were prepared in the same AI-assisted workflow; algorithmic separation is not independent human validation. Agreement may preserve a shared misunderstanding.
+`oracle.py` first uses whole-input strict UTF-8 decoding and then a regular expression to enumerate terminated lines. `model.py` uses a valid-only byte DFA, scalar-by-scalar CR/LF processing and a string data buffer. The model does not import codecs, regular expressions, or the reference evaluator. Upstream literal expected-data examples check both, and the short cases enumerate every partition. The implementations share a preparation process, so separate algorithms do not supply an independent validation source. Agreement may preserve a shared misunderstanding.
 
 The model does not implement invalid-byte replacement/error recovery. Profile membership is checked by the evaluation's reference entrypoint. This is not a general-purpose replacement for a browser decoder.
