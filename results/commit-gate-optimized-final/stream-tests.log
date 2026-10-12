@@ -1,0 +1,19 @@
+✔ all retained gate schedules and modes preserve specified observations and reset counts (12815.2786ms)
+✔ all byte cuts of Unicode/CRLF/BOM literal stream preserve sinks (0.5745ms)
+✔ retry sink requests wait for scalar/block commits without delaying retry to next push (0.1784ms)
+✔ sustained 2.5+ MiB stream retains no output history and one stream BOM owner (234.5687ms)
+✔ bytewise residual observer covers every valid scalar, including boundary planes (6225.3288ms)
+✔ event sinks request both replacements before the following block of one push (0.1999ms)
+✔ fatal validation and EOF checks remain active (0.4808ms)
+✔ unfinished lines/blocks are not dispatched or committed at EOF (0.1107ms)
+✔ configured line/block limits fail terminally; per-call cap remains (0.2444ms)
+✔ close, reentrancy, and sink errors do not silently resume (0.2792ms)
+✔ line-only ablation and block batching preserve observations, reduce actual calls (0.1329ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 19391.6747

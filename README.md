@@ -21,6 +21,7 @@ PYTHONPATH=. python -B scripts/interaction_law.py
 PYTHONPATH=. python -m chunkweave.audit   --file examples/progress.sse --out results/my-smoke.json
 node --check chunkweave/node_worker.mjs
 node --check chunkweave/commit_gate.mjs
+node --no-warnings --experimental-transform-types --test tests/test_commit_gate_stream.mjs
 ```
 
 The standalone silent-fragment checker uses Python's standard library and the
@@ -96,4 +97,49 @@ coverage and measured detection-versus-work comparisons.
 
 ## Safety and bounds
 
-All inputs are valid UTF-8, local, and no larger than 65,536 bytes. The graph check has byte, node, edge, and elapsed-time caps and returns `UNKNOWN` when a cap is reached. The browser pilot is not part of the passing evidence because local navigation was administratively blocked before any request.
+The fixture campaign uses valid local UTF-8 inputs no larger than 65,536 bytes. The graph check has byte, node, edge, and elapsed-time caps and returns `UNKNOWN` when a cap is reached. The browser pilot is not part of the passing evidence because local navigation was administratively blocked before any request.
+
+## Gate refinement and stream interface
+
+`chunkweave/commit_gate.mjs` now exports `createCommitGate` as well as the original
+bounded `executeCommitGate` wrapper. Use `push(Uint8Array)` followed by `finish()`
+for a synchronous stream. `collect:false` and `onEvent`/`onRetry`/`onError` sinks
+avoid retained output histories; the caller remains responsible for its own sink
+memory and flow control. Requests through `requestDecoderReplacement()` and
+`requestParserReplacement()` commit at scalar and blank-line boundaries. Sinks
+must not reenter push/finish. A sink, decoding, or limit error ends the session;
+delivered events are not rolled back. Each push is capped at 64 KiB; configured
+unfinished-line and canonical-block limits default to 65,536 UTF-16 characters.
+Total input need not be collected or capped. EOF adds no separator.
+
+Fatal UTF-8 decoding remains active. After decoding validates a chunk, residual
+tracking inspects at most four tail bytes. Complete-line batches stop at each
+blank separator before applying a parser replacement. The preserved
+`commit_gate_reference.mjs` is the original gate, with only its exported function
+renamed, and is a contract-matched benchmark baseline. The direct fatal-decoder
+baseline has no replacement contract. `batchLines:false` supplies a line-only
+ablation without disabling decoding checks or commit rules.
+
+The supplementary records at `results/commit-gate-optimized-final/` contain
+8,640 warm measurements on 94 streams/240 workloads, 36 fresh-process cold
+measurements, single-pass work counts, and a fresh exhaustive result. They used
+Node 24.19.0 on Windows x64 and must not be pooled with the original Node
+22.16.0 results. Median paired warm time decreases by 10.03% (base) and 9.42%
+(all requests) against the original gate. Cold first execution is not improved,
+and overhead over the direct no-replacement cost floor remains. The original
+21.92%/42.46% headline measurements above are retained historical measurements,
+not timings of the refined implementation.
+
+Run a new comparison and regenerate its supplementary table, without compiling:
+
+```sh
+node --no-warnings --experimental-transform-types scripts/benchmark_commit_gate.mjs results/my-gate-refinement
+python -B scripts/summarize_gate_refinement.py --out results/my-gate-refinement --paper ../paper
+```
+
+The benchmark refuses an existing output directory and stays under artifact
+`results/`. This experiment selects inputs and schedules without fault outcomes.
+It does not rerun or replace the controlled detection campaign. That campaign's
+strongest comparison is 4,010 versus 3,999 detected units: eleven additional
+detections (0.216 percentage points), none on the structural cohort, with zero
+observed partition-induced variation in any unmodified source configuration.

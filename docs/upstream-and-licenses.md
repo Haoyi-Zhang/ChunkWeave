@@ -46,7 +46,7 @@ Existing tests already cover fragmentation and decoder/parser interaction. This 
 
 ## Paper template and literature
 
-The supplied acmart class, bibliography style and publisher source/README remain under their own notices. The original project starter prose and placeholder venue citation were replaced. Primary papers are cited, with legal retrieval URLs and verification notes in `paper/REFERENCE-AUDIT.md`; copyrighted third-party paper PDFs and font files are not redistributed.
+The supplied acmart class and bibliography style remain under their own notices. Primary papers and retrieval URLs are listed in the companion `paper/references.bib`; copyrighted third-party paper PDFs and font files are not redistributed.
 
 ## Complete authored corpus
 

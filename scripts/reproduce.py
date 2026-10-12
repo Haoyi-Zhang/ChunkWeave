@@ -25,6 +25,8 @@ def main() -> None:
     steps: list[dict] = []
     commands = [
         ('tests', [sys.executable, '-m', 'pytest', 'tests', '-q'], 90),
+        ('gate-stream-tests', ['node', '--no-warnings', '--experimental-transform-types',
+                               '--test', 'tests/test_commit_gate_stream.mjs'], 120),
         ('projection', [sys.executable, 'scripts/projection_audit.py', '--out', str(args.out / 'projection-audit.json')], 90),
         ('study', [sys.executable, 'scripts/study.py', '--out', str(args.out)], 960),
         ('silent-fragment-law', [sys.executable, 'scripts/interaction_law.py', '--out', str(args.out / 'interaction-law.json')], 60),

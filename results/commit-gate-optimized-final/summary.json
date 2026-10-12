@@ -1,0 +1,89 @@
+{
+  "status": "PASS",
+  "node": "v24.19.0",
+  "platform": "win32",
+  "arch": "x64",
+  "scope": "local valid-input timing, no network, no invented faults; direct is a no-replacement cost floor, original gate is contract-matched",
+  "selected_streams": 94,
+  "workloads": 240,
+  "repeats": 6,
+  "rows": 8640,
+  "timer": "warm in-process, includes construction/output allocation, excludes input plans and equality checks; cold separately includes startup/imports",
+  "checksum": 4873824,
+  "summary": {
+    "direct-fatal": {
+      "runs": 1440,
+      "median_ms": 0.003758583690983877,
+      "mean_ms": 0.10567484003445414,
+      "paired_vs_direct_percent": 0,
+      "paired_vs_original_percent": -38.06107834086899
+    },
+    "original": {
+      "runs": 1440,
+      "median_ms": 0.013667973607147338,
+      "mean_ms": 0.15000067817321147,
+      "paired_vs_direct_percent": 61.44937193289377,
+      "paired_vs_original_percent": 0
+    },
+    "suffix-line": {
+      "runs": 1440,
+      "median_ms": 0.005042060085835954,
+      "mean_ms": 0.14102697603937178,
+      "paired_vs_direct_percent": 62.17013281779982,
+      "paired_vs_original_percent": -1.3235145595611009
+    },
+    "optimized": {
+      "runs": 1440,
+      "median_ms": 0.0048074679788132745,
+      "mean_ms": 0.13575562304650912,
+      "paired_vs_direct_percent": 50.545019566486445,
+      "paired_vs_original_percent": -10.030653714891436
+    },
+    "original-all": {
+      "runs": 1440,
+      "median_ms": 0.014537985543219528,
+      "mean_ms": 0.15519290802843363,
+      "paired_vs_direct_percent": 76.51096278099293,
+      "paired_vs_original_percent": 0
+    },
+    "optimized-all": {
+      "runs": 1440,
+      "median_ms": 0.006130045433203212,
+      "mean_ms": 0.14131518816107924,
+      "paired_vs_direct_percent": 66.60985138223526,
+      "paired_vs_original_percent": -9.421501765337382
+    }
+  },
+  "cold_summary": {
+    "direct-fatal": {
+      "runs": 6,
+      "median_first_execution_ms": 0.5928499999999985,
+      "median_process_ms": 95.74465000000055
+    },
+    "original": {
+      "runs": 6,
+      "median_first_execution_ms": 1.0623999999999967,
+      "median_process_ms": 93.68584999999985
+    },
+    "suffix-line": {
+      "runs": 6,
+      "median_first_execution_ms": 1.346349999999994,
+      "median_process_ms": 95.20229999999901
+    },
+    "optimized": {
+      "runs": 6,
+      "median_first_execution_ms": 1.088799999999992,
+      "median_process_ms": 93.76889999999912
+    },
+    "original-all": {
+      "runs": 6,
+      "median_first_execution_ms": 0.9211999999999989,
+      "median_process_ms": 92.30594999999994
+    },
+    "optimized-all": {
+      "runs": 6,
+      "median_first_execution_ms": 1.3386999999999958,
+      "median_process_ms": 94.22245000000112
+    }
+  }
+}

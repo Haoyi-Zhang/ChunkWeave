@@ -1,7 +1,6 @@
 # Evaluation plan and method decisions
 
-Recorded before constructing or scoring the 144-stream structural cohort on 4 October 2026. This is a local prospective design record.
-This is a local prospective design record, not an independent preregistration.
+Recorded before constructing or scoring the 144-stream structural cohort on 4 October 2026; a local prospective design record, not an independent preregistration.
 
 Earlier pilot results informed the callback-aware portfolio. The structural cohort tests transfer to additional authored constructions; it is not an independently collected population.
 
