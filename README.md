@@ -120,7 +120,7 @@ renamed, and is a contract-matched benchmark baseline. The direct fatal-decoder
 baseline has no replacement contract. `batchLines:false` supplies a line-only
 ablation without disabling decoding checks or commit rules.
 
-The supplementary records at `results/commit-gate-optimized-final/` contain
+The supplementary records at `results/gate-refinement/` contain
 8,640 warm measurements on 94 streams/240 workloads, 36 fresh-process cold
 measurements, single-pass work counts, and a fresh exhaustive result. They used
 Node 24.19.0 on Windows x64 and must not be pooled with the original Node

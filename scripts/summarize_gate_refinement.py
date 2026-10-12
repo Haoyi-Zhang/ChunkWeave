@@ -18,7 +18,7 @@ LABELS = {
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--out', type=Path, default=Path('results/commit-gate-optimized-final'))
+    parser.add_argument('--out', type=Path, default=Path('results/gate-refinement'))
     parser.add_argument('--paper', type=Path, default=Path('../paper'))
     args = parser.parse_args()
     rows = json.loads((args.out / 'timing.json').read_text())

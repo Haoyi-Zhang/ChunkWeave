@@ -45,7 +45,7 @@ if (process.argv[2] === '--cold') {
   const result = execute(process.argv[3], new TextEncoder().encode('id:7\nretry:21\ndata:é中🌍\n\n'), [14])
   console.log(JSON.stringify({elapsed_ms:performance.now() - start, observation:project(result)}))
 } else {
-  const out = path.resolve(process.argv[2] || path.join(root, 'results/commit-gate-optimized'))
+  const out = path.resolve(process.argv[2] || path.join(root, 'results/gate-refinement'))
   const allowed = path.join(root, 'results') + path.sep
   if (!out.startsWith(allowed)) throw new Error('benchmark output must stay inside candidate artifact/results')
   if (fs.existsSync(out)) throw new Error('refusing to overwrite a benchmark run')
