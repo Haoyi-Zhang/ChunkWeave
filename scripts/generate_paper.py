@@ -17,6 +17,7 @@ import numpy as np
 
 from chunkweave.shadow_law import failure_probability
 from chunkweave.strategies import STRATEGIES
+from chunkweave.reporting import peak_rss_tex
 
 LABEL = {
     'fixed': 'Fixed sizes',
@@ -205,7 +206,7 @@ def main() -> None:
 
     gate_timing = gate['timing']['summary']
     macros = {
-        'PeakRSS': f"{resources['peak_rss_kib'] / 1024:.2f}",
+        'PeakRSS': peak_rss_tex(resources['peak_rss_kib']),
         'AllUnits': summary['cohorts']['all']['units'],
         'StructuralUnits': summary['cohorts']['new-input-all-action']['units'],
         'AllPortfolio': f"{summary['cohorts']['all']['rates']['callback-aware']:.2f}",
