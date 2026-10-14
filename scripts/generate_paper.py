@@ -18,6 +18,7 @@ import numpy as np
 from chunkweave.shadow_law import failure_probability
 from chunkweave.strategies import STRATEGIES
 from chunkweave.reporting import peak_rss_tex
+from chunkweave.plot_inputs import read_json, read_timing_records
 
 LABEL = {
     'fixed': 'Fixed sizes',
@@ -42,12 +43,12 @@ def main() -> None:
     generated.mkdir(parents=True, exist_ok=True)
     figures.mkdir(parents=True, exist_ok=True)
 
-    summary = json.loads((out / 'analysis/summary.json').read_text())
-    resources = json.loads((out / 'resources.json').read_text())
-    law = json.loads((out / 'shadow-law.json').read_text())
-    gate = json.loads((out / 'commit-gate/summary.json').read_text())
+    summary = read_json(out / 'analysis/summary.json')
+    resources = read_json(out / 'resources.json')
+    law = read_json(out / 'shadow-law.json')
+    gate = read_json(out / 'commit-gate/summary.json')
 
-    timing_rows = [json.loads(line) for line in gzip.open(out / 'timing.jsonl.gz', 'rt')]
+    timing_rows = read_timing_records(out / 'timing.jsonl.gz')
     by_strategy: dict[str, list[dict]] = defaultdict(list)
     for row in timing_rows:
         by_strategy[row['strategy']].append(row)
