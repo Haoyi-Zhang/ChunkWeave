@@ -3,7 +3,6 @@ from __future__ import annotations
 
 import argparse
 import csv
-import gzip
 import json
 import statistics
 from collections import Counter, defaultdict
