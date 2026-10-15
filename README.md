@@ -13,6 +13,21 @@ The retained primary execution used Python 3.13.5 and Node 22.16.0. Use the pinn
 
 The experiments themselves make no remote requests.
 
+Run the commands below from this artifact directory. For the ordinary suite and
+CLI, install the core and test requirements first:
+
+```sh
+python -m pip install -r requirements-core.txt -r requirements-upstream.txt
+```
+
+Even the JavaScript CLI route imports the unchanged `httpx_sse` package
+initializer, so it needs the core HTTPX dependencies. The separate standard-
+library checks below avoid that import. Shell examples use POSIX `PYTHONPATH=.`;
+in PowerShell set `$env:PYTHONPATH = '.'` once, then omit that prefix. Keep Node
+on PATH for source-worker checks. Full analysis/plotting additionally uses
+`requirements-analysis.txt`; browser dependencies are optional and do not turn
+the retained blocked browser pilot into passing evidence.
+
 ## Fast checks
 
 ```sh
@@ -38,10 +53,14 @@ PYTHONPATH=. python -B -m unittest discover -s tests -p test_result_summary.py -
 Choose a new output directory; the driver refuses to overwrite an existing run.
 
 ```sh
-PYTHONPATH=. python scripts/reproduce.py   --out results/my-run --paper ../paper
+PYTHONPATH=. python scripts/reproduce.py   --out results/my-run
 ```
 
 The driver runs local tests, bounded-state projection, the main campaign, exact boundary-law checks, rank-balanced timing, available unchanged upstream tests, witness reduction, analysis, CommitGate evaluation, and a CLI smoke test. With the optional companion `paper/` directory it also builds the anonymous manuscript. Published code alone can run without a manuscript or a TeX installation.
+
+Only for the complete project bundle, append `--paper ../paper` to build the
+companion manuscript with its TeX dependencies. This reproduction is a full
+campaign, not one of the lightweight checks above.
 
 The silent-fragment check writes `interaction-law.json` for 1,792 partitions of
 three single-scalar inputs. The distinct callback-shadow check writes
