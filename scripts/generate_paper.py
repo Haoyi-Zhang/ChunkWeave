@@ -10,7 +10,7 @@ from fractions import Fraction
 from pathlib import Path
 
 import matplotlib
-matplotlib.use('pgf')
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -150,9 +150,8 @@ def main() -> None:
     table += [r'\bottomrule', r'\end{tabular}']
     (generated / 'commit-gate.tex').write_text('\n'.join(table) + '\n')
 
-    plt.rcParams.update({'font.size': 9, 'font.family': 'serif',
-                         'pgf.texsystem': 'pdflatex', 'pgf.rcfonts': False,
-                         'pgf.preamble': r'\usepackage[T1]{fontenc}\usepackage{libertine}',
+    plt.rcParams.update({'font.size': 9, 'font.family': 'STIXGeneral',
+                         'mathtext.fontset': 'stix', 'text.usetex': False,
                          'pdf.fonttype': 42, 'ps.fonttype': 42})
     fig, axis = plt.subplots(figsize=(3.35, 2.25))
     density = np.linspace(0, 1, 201)
@@ -186,7 +185,8 @@ def main() -> None:
         writer.writerow(['scalar_bytes', 'independent_cut_probability', 'failure_percent'])
         writer.writerows(density_rows)
 
-    fig, axis = plt.subplots(figsize=(3.35, 2.25))
+    # The wide aspect keeps all four curve labels readable at column width.
+    fig, axis = plt.subplots(figsize=(3.35, 1.75))
     for strategy, linestyle in [('fixed', '-'), ('state-feature-no-parser', '--'),
                                 ('callback-aware', '-.'), ('two-obligation', ':')]:
         values = sorted(row['detected_ms'] for row in by_strategy[strategy]

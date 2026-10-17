@@ -78,7 +78,7 @@ PYTHONPATH=. python scripts/compare_reproduction.py   --primary results/study   
 PYTHONPATH=. python scripts/generate_paper.py   --out results/study --paper ../paper
 ```
 
-This regenerates numeric macros, table snippets, CSV files, and vector plots. Plot labels use pdfLaTeX and the manuscript's Libertine font; pdfLaTeX must be on PATH for this optional step. The conceptual callback diagram remains editable TikZ in `../paper/figures/shadow.tex`. A change of host can change timing results; review the accompanying statistical prose when replacing primary measurements.
+This regenerates numeric macros, table snippets, CSV files, and embedded-font vector plots directly in Python. The conceptual callback example is drawn by `python scripts/draw_callback.py --output ../paper/figures/shadow.pdf`; it illustrates the stated byte sequence without executing an experiment. Plot generation uses the analysis dependencies and does not invoke TeX. Building the manuscript still requires pdfLaTeX and BibTeX. A change of host can change timing results; review the accompanying statistical prose when replacing primary measurements.
 
 ## Results layout
 

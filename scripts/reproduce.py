@@ -41,7 +41,9 @@ def main() -> None:
     ]
     if args.paper is not None:
         commands.extend([
-            ('paper-figure', ['latexmk', '-pdf', '-interaction=nonstopmode', '-halt-on-error', 'shadow.tex'], 180),
+            ('paper-figure', [sys.executable,
+                              str(Path(__file__).resolve().with_name('draw_callback.py')),
+                              '--output', str(args.paper.resolve()/'figures/shadow.pdf')], 180),
             ('paper', ['latexmk', '-pdf', '-interaction=nonstopmode', '-halt-on-error', 'main.tex'], 180),
         ])
     for name, command, timeout in commands:
