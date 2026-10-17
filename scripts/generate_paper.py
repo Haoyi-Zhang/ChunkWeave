@@ -14,9 +14,6 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import numpy as np
 
-from chunkweave.shadow_law import failure_probability
-from chunkweave.strategies import STRATEGIES
-from chunkweave.reporting import peak_rss_tex
 from chunkweave.plot_inputs import read_json, read_timing_records
 
 LABEL = {
@@ -32,12 +29,54 @@ LABEL = {
 }
 
 
+def draw_discovery(by_strategy: dict[str, list[dict]], target: Path) -> None:
+    """Draw only the retained timing curves; non-detections stay in each denominator."""
+    plt.rcParams.update({'font.size': 9, 'font.family': 'STIXGeneral',
+                         'mathtext.fontset': 'stix', 'text.usetex': False,
+                         'pdf.fonttype': 42, 'ps.fonttype': 42})
+    # The wide aspect keeps all four curve labels readable at column width.
+    fig, axis = plt.subplots(figsize=(3.35, 1.75))
+    for strategy, linestyle in [('fixed', '-'), ('state-feature-no-parser', '--'),
+                                ('callback-aware', '-.'), ('two-obligation', ':')]:
+        values = sorted(row['detected_ms'] for row in by_strategy[strategy]
+                        if row['detected_ms'] is not None)
+        x_values = np.geomspace(.04, 50, 220)
+        y_values = [100 * np.searchsorted(values, threshold, side='right') /
+                    len(by_strategy[strategy]) for threshold in x_values]
+        axis.plot(x_values, y_values, label=LABEL[strategy], linestyle=linestyle)
+    axis.set(xscale='log', xlabel='Warm discovery budget (ms)',
+             ylabel='Detected eligible repeats (%)', ylim=(0, 100), xlim=(.04, 50))
+    axis.set_xticks([.1, 1, 10, 50], [r'0.1', '1', '10', '50'])
+    axis.legend(frameon=False, loc='lower right', fontsize=7.3)
+    axis.spines[['top', 'right']].set_visible(False)
+    fig.tight_layout(pad=.35)
+    target.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(target, bbox_inches='tight', pad_inches=.08)
+    plt.close(fig)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--out', type=Path, default=Path('results/study'))
     parser.add_argument('--paper', type=Path, default=Path('../paper'))
+    parser.add_argument('--discovery-only', action='store_true',
+                        help='redraw only discovery.pdf from retained timing.jsonl.gz; no tables, macros, analysis writes or TeX')
     args = parser.parse_args()
     out, paper = args.out, args.paper
+    if args.discovery_only:
+        by_strategy: dict[str, list[dict]] = defaultdict(list)
+        timing_rows = read_timing_records(out / 'timing.jsonl.gz')
+        for row in timing_rows:
+            by_strategy[row['strategy']].append(row)
+        draw_discovery(by_strategy, paper / 'figures/discovery.pdf')
+        print(json.dumps({'figure': str(paper / 'figures/discovery.pdf'),
+                          'retained_timing_rows': len(timing_rows), 'new_measurements': False}))
+        return
+
+    from chunkweave.shadow_law import failure_probability
+    from chunkweave.strategies import STRATEGIES
+    from chunkweave.reporting import peak_rss_tex
+
     generated, figures = paper / 'generated', paper / 'figures'
     generated.mkdir(parents=True, exist_ok=True)
     figures.mkdir(parents=True, exist_ok=True)
@@ -185,24 +224,7 @@ def main() -> None:
         writer.writerow(['scalar_bytes', 'independent_cut_probability', 'failure_percent'])
         writer.writerows(density_rows)
 
-    # The wide aspect keeps all four curve labels readable at column width.
-    fig, axis = plt.subplots(figsize=(3.35, 1.75))
-    for strategy, linestyle in [('fixed', '-'), ('state-feature-no-parser', '--'),
-                                ('callback-aware', '-.'), ('two-obligation', ':')]:
-        values = sorted(row['detected_ms'] for row in by_strategy[strategy]
-                        if row['detected_ms'] is not None)
-        x_values = np.geomspace(.04, 50, 220)
-        y_values = [100 * np.searchsorted(values, threshold, side='right') /
-                    len(by_strategy[strategy]) for threshold in x_values]
-        axis.plot(x_values, y_values, label=LABEL[strategy], linestyle=linestyle)
-    axis.set(xscale='log', xlabel='Warm discovery budget (ms)',
-             ylabel='Detected eligible repeats (%)', ylim=(0, 100), xlim=(.04, 50))
-    axis.set_xticks([.1, 1, 10, 50], [r'0.1', '1', '10', '50'])
-    axis.legend(frameon=False, loc='lower right', fontsize=7.3)
-    axis.spines[['top', 'right']].set_visible(False)
-    fig.tight_layout(pad=.35)
-    fig.savefig(figures / 'discovery.pdf')
-    plt.close(fig)
+    draw_discovery(by_strategy, figures / 'discovery.pdf')
 
     gate_timing = gate['timing']['summary']
     macros = {

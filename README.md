@@ -80,6 +80,19 @@ PYTHONPATH=. python scripts/generate_paper.py   --out results/study --paper ../p
 
 This regenerates numeric macros, table snippets, CSV files, and embedded-font vector plots directly in Python. The conceptual callback example is drawn by `python scripts/draw_callback.py --output ../paper/figures/shadow.pdf`; it illustrates the stated byte sequence without executing an experiment. Plot generation uses the analysis dependencies and does not invoke TeX. Building the manuscript still requires pdfLaTeX and BibTeX. A change of host can change timing results; review the accompanying statistical prose when replacing primary measurements.
 
+To redraw only the discovery figure from the existing timing records, without
+rewriting macros, tables, summaries or other figures and without compiling TeX:
+
+```sh
+PYTHONPATH=. python -B scripts/generate_paper.py --discovery-only --out results/study --paper ../paper
+PYTHONPATH=. python -B -m unittest discover -s tests -p test_discovery_plot.py -v
+```
+
+This route uses the same four curves, 220 log-spaced thresholds, labels and
+all-eligible-repeat denominators, including non-detections. The tight PDF
+bounding box and padding retain the complete vertical axis label. It reads
+retained measurements; it does not run a new timing campaign.
+
 ## Results layout
 
 - `results/study/`: primary executed evidence.
